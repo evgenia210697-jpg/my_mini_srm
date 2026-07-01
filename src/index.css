@@ -1,0 +1,43 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Unbounded:wght@500;600;700&display=swap');
+
+:root {
+  --font-ui: 'Montserrat', system-ui, sans-serif;
+  --font-heading: 'Unbounded', 'Montserrat', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  min-height: 100vh;
+  background: #F7F8FA;
+  color: #16181C;
+  font-family: var(--font-ui);
+}
+
+h1, h2, h3, .font-heading {
+  font-family: var(--font-heading);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #D8DBE2;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #B9BEC9;
+}
+
+@keyframes pulse-urgent {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+.pulse-urgent {
+  animation: pulse-urgent 1.8s ease-in-out infinite;
+}
