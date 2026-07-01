@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import FilterBar from './FilterBar';
 import TaskTable from './TaskTable';
+import TaskCardList from './TaskCardList';
 import { filterTasks, sortTasks } from '../../lib/taskUtils';
 
 const emptyFilters = { status: [], type: [], project: [], priority: [], search: '' };
@@ -18,7 +19,12 @@ export default function TaskListView({ tasks, projects, onOpenTask, onStatusChan
     <div>
       <FilterBar filters={filters} onFiltersChange={setFilters} projects={projects} sort={sort} onSortChange={setSort} />
       <p className="text-xs text-[#9AA1AE] mb-2">{visibleTasks.length} из {tasks.length} задач</p>
-      <TaskTable tasks={visibleTasks} onOpenTask={onOpenTask} onStatusChange={onStatusChange} />
+      <div className="hidden md:block">
+        <TaskTable tasks={visibleTasks} onOpenTask={onOpenTask} onStatusChange={onStatusChange} />
+      </div>
+      <div className="md:hidden">
+        <TaskCardList tasks={visibleTasks} onOpenTask={onOpenTask} onStatusChange={onStatusChange} />
+      </div>
     </div>
   );
 }

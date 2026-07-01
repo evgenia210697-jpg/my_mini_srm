@@ -15,6 +15,7 @@ export default function KanbanCard({ task, onOpen }) {
   const style = {
     transform: CSS.Translate.toString(transform),
     opacity: isDragging ? 0.4 : 1,
+    touchAction: 'none',
   };
 
   return (

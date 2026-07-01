@@ -5,7 +5,7 @@ export default function KanbanColumn({ status, tasks, onOpen }) {
   const { setNodeRef, isOver } = useDroppable({ id: status.id });
 
   return (
-    <div className="flex flex-col w-72 shrink-0">
+    <div className="flex flex-col w-[85vw] max-w-72 sm:w-72 shrink-0 snap-start">
       <div className="flex items-center gap-2 mb-2 px-1">
         <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: status.color }} />
         <h3 className="text-sm font-semibold text-[#16181C]">{status.label}</h3>

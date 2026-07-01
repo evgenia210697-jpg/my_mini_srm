@@ -103,7 +103,7 @@ export default function TaskModal({ open, onClose, onSave, onDelete, task, proje
           />
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label className="text-xs font-medium text-[#6B7280]">Проект / категория</label>
             {addingProject ? (
@@ -148,7 +148,7 @@ export default function TaskModal({ open, onClose, onSave, onDelete, task, proje
           </div>
         </div>
 
-        <div className="grid grid-cols-3 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <div>
             <label className="text-xs font-medium text-[#6B7280]">Статус</label>
             <select
@@ -185,7 +185,7 @@ export default function TaskModal({ open, onClose, onSave, onDelete, task, proje
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
             <label className="text-xs font-medium text-[#6B7280]">Дата старта</label>
             <input

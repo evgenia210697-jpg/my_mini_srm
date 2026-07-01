@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useTasks } from './hooks/useTasks';
 import TopBar from './components/Layout/TopBar';
+import BottomNav from './components/Layout/BottomNav';
 import SummaryView from './components/Summary/SummaryView';
 import TaskListView from './components/TaskList/TaskListView';
 import KanbanView from './components/Kanban/KanbanView';
@@ -57,7 +58,7 @@ export default function App() {
         onLogout={() => { logout(); setAuthed(false); }}
       />
 
-      <main className="max-w-[1400px] mx-auto px-4 sm:px-6 py-6">
+      <main className="max-w-[1400px] mx-auto px-3 sm:px-6 py-4 sm:py-6 pb-24 md:pb-6">
         {view === 'summary' && <SummaryView tasks={tasks} onOpenTask={openTask} />}
         {view === 'list' && (
           <TaskListView tasks={tasks} projects={projects} onOpenTask={openTask} onStatusChange={setStatus} />
@@ -67,6 +68,8 @@ export default function App() {
         )}
         {view === 'calendar' && <CalendarView tasks={tasks} onOpenTask={openTask} />}
       </main>
+
+      <BottomNav view={view} onViewChange={setView} />
 
       <TaskModal
         open={modalOpen}
