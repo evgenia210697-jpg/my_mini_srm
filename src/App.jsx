@@ -6,8 +6,12 @@ import TaskListView from './components/TaskList/TaskListView';
 import KanbanView from './components/Kanban/KanbanView';
 import CalendarView from './components/Calendar/CalendarView';
 import TaskModal from './components/TaskModal/TaskModal';
+import LoginScreen from './components/Auth/LoginScreen';
+import { isAuthenticated, logout } from './lib/auth';
 
 export default function App() {
+  const [authed, setAuthed] = useState(isAuthenticated());
+
   const {
     tasks, projects, addTask, updateTask, deleteTask, setStatus,
     addProject, importTasks, resetAll,
@@ -37,6 +41,10 @@ export default function App() {
     setModalOpen(false);
   };
 
+  if (!authed) {
+    return <LoginScreen onSuccess={() => setAuthed(true)} />;
+  }
+
   return (
     <div className="min-h-screen bg-[#F7F8FA]">
       <TopBar
@@ -46,6 +54,7 @@ export default function App() {
         tasks={tasks}
         onImport={importTasks}
         onReset={resetAll}
+        onLogout={() => { logout(); setAuthed(false); }}
       />
 
       <main className="max-w-[1400px] mx-auto px-4 sm:px-6 py-6">

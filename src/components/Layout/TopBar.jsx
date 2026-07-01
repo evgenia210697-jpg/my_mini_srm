@@ -1,7 +1,7 @@
 import { VIEWS } from '../../lib/constants';
 import DataMenu from './DataMenu';
 
-export default function TopBar({ view, onViewChange, onNewTask, tasks, onImport, onReset }) {
+export default function TopBar({ view, onViewChange, onNewTask, tasks, onImport, onReset, onLogout }) {
   return (
     <header className="sticky top-0 z-30 bg-[#F7F8FA]/95 backdrop-blur border-b border-[#EEF0F3]">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 py-4 flex flex-wrap items-center gap-3 justify-between">
@@ -34,6 +34,13 @@ export default function TopBar({ view, onViewChange, onNewTask, tasks, onImport,
             className="px-4 py-2 rounded-lg text-sm font-medium text-white bg-[#2D6BFF] hover:bg-[#1E54DB] shadow-sm"
           >
             + Новая задача
+          </button>
+          <button
+            onClick={onLogout}
+            title="Выйти"
+            className="w-9 h-9 flex items-center justify-center rounded-lg text-[#9AA1AE] border border-[#E5E7EB] hover:bg-[#F1F2F4] hover:text-[#DC2626]"
+          >
+            ⏻
           </button>
         </div>
       </div>
